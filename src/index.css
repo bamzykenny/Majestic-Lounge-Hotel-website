@@ -1,0 +1,269 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Luxury Hotel Design System - All colors, gradients, fonts, etc defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Core Brand Colors */
+    --background: 35 20% 96%; /* Warm cream */
+    --foreground: 210 25% 15%; /* Deep charcoal */
+
+    --card: 0 0% 100%; /* Pure white */
+    --card-foreground: 210 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 25% 15%;
+
+    /* Hotel Brand Identity */
+    --primary: 210 100% 8%; /* Midnight navy */
+    --primary-foreground: 35 20% 96%;
+    --primary-glow: 210 50% 15%; /* Lighter navy for gradients */
+
+    /* Luxury Gold Accent */
+    --secondary: 43 96% 56%; /* Rich gold */
+    --secondary-foreground: 210 100% 8%;
+    --gold-light: 45 100% 70%; /* Light gold */
+    --gold-dark: 40 85% 45%; /* Dark gold */
+
+    /* Neutral Palette */
+    --muted: 35 15% 92%; /* Light cream */
+    --muted-foreground: 210 15% 40%;
+
+    --accent: 35 25% 88%; /* Warm beige */
+    --accent-foreground: 210 25% 15%;
+
+    /* Status Colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 98%;
+
+    /* UI Elements */
+    --border: 35 20% 85%;
+    --input: 35 20% 90%;
+    --ring: 43 96% 56%;
+
+    --radius: 0.75rem;
+
+    /* Luxury Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--gold-light)));
+    --gradient-elegant: linear-gradient(180deg, hsl(var(--background)), hsl(var(--accent)));
+
+    /* Luxury Shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(210 25% 15% / 0.15);
+    --shadow-gold: 0 8px 25px -8px hsl(43 96% 56% / 0.25);
+    --shadow-card: 0 4px 20px -4px hsl(210 25% 15% / 0.1);
+
+  /* Animation Variables */
+  --transition-elegant: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: all 0.3s ease-out;
+  --transition-slide: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    /* Sidebar (keeping for compatibility) */
+    --sidebar-background: 210 100% 8%;
+    --sidebar-foreground: 35 20% 96%;
+    --sidebar-primary: 43 96% 56%;
+    --sidebar-primary-foreground: 210 100% 8%;
+    --sidebar-accent: 210 50% 15%;
+    --sidebar-accent-foreground: 35 20% 96%;
+    --sidebar-border: 210 25% 20%;
+    --sidebar-ring: 43 96% 56%;
+  }
+
+  .dark {
+    /* Dark Mode - Sophisticated Evening Palette */
+    --background: 210 25% 8%;
+    --foreground: 35 20% 95%;
+
+    --card: 210 25% 10%;
+    --card-foreground: 35 20% 95%;
+
+    --popover: 210 25% 10%;
+    --popover-foreground: 35 20% 95%;
+
+    --primary: 35 20% 95%;
+    --primary-foreground: 210 25% 8%;
+    --primary-glow: 35 30% 80%;
+
+    --secondary: 43 96% 56%;
+    --secondary-foreground: 210 25% 8%;
+    --gold-light: 45 100% 70%;
+    --gold-dark: 40 85% 45%;
+
+    --muted: 210 25% 15%;
+    --muted-foreground: 35 15% 60%;
+
+    --accent: 210 25% 18%;
+    --accent-foreground: 35 20% 95%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 35 20% 95%;
+    --success: 142 71% 45%;
+    --success-foreground: 35 20% 95%;
+
+    --border: 210 25% 20%;
+    --input: 210 25% 15%;
+    --ring: 43 96% 56%;
+
+    /* Dark mode gradients and shadows */
+    --gradient-hero: linear-gradient(135deg, hsl(210 25% 8%), hsl(210 25% 15%));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--gold-dark)));
+    --gradient-elegant: linear-gradient(180deg, hsl(210 25% 8%), hsl(210 25% 12%));
+
+    --shadow-elegant: 0 10px 30px -10px hsl(0 0% 0% / 0.3);
+    --shadow-gold: 0 8px 25px -8px hsl(43 96% 56% / 0.15);
+    --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.2);
+
+    /* Sidebar dark mode */
+    --sidebar-background: 210 25% 6%;
+    --sidebar-foreground: 35 20% 90%;
+    --sidebar-primary: 43 96% 56%;
+    --sidebar-primary-foreground: 210 25% 8%;
+    --sidebar-accent: 210 25% 12%;
+    --sidebar-accent-foreground: 35 20% 90%;
+    --sidebar-border: 210 25% 15%;
+    --sidebar-ring: 43 96% 56%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  /* Typography Classes */
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* Luxury Animation Classes */
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.8s ease-out forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slide-in-left 0.8s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 0.8s ease-out forwards;
+  }
+
+  .animate-parallax {
+    will-change: transform;
+  }
+
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: var(--transition-slide);
+  }
+
+  .animate-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Custom Animations */
+  @keyframes fade-in {
+    from { 
+      opacity: 0; 
+      transform: translateY(20px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  @keyframes slide-up {
+    from { 
+      opacity: 0; 
+      transform: translateY(40px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  @keyframes slide-in-left {
+    from { 
+      opacity: 0; 
+      transform: translateX(-50px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateX(0); 
+    }
+  }
+
+  @keyframes slide-in-right {
+    from { 
+      opacity: 0; 
+      transform: translateX(50px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateX(0); 
+    }
+  }
+
+  @keyframes rotate-slide {
+    from { 
+      opacity: 0; 
+      transform: rotate(-5deg) scale(0.9); 
+    }
+    to { 
+      opacity: 1; 
+      transform: rotate(0deg) scale(1); 
+    }
+  }
+
+  /* Utility Classes */
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .bg-gradient-gold {
+    background: var(--gradient-gold);
+  }
+
+  .bg-gradient-elegant {
+    background: var(--gradient-elegant);
+  }
+
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .transition-elegant {
+    transition: var(--transition-elegant);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+}
